@@ -64,6 +64,7 @@ def find_max_rectangle(image_path):
 	global	upper_left
 	global	lower_left
 	global	unhindered
+	global  real_image
 	#Initial area of our first rectangle
 	area=0
 
@@ -378,11 +379,11 @@ def find_max_rectangle(image_path):
 	end=time.time()
 	print("the process took %lf seconds" %(end-start))
 	cv2.rectangle(real_image, (xmin,height-ymax), (xmax-1,height-ymin-1),(0,255,0), thickness=1, lineType=8, shift=0)
-	# cv2.imshow("image",real_image)
-	# cv2.waitKey(0)
 
 	results = [xmin,(height-ymax),(xmax-1),(height-ymin-1)]
 	return results
 	
 a=find_max_rectangle(image_path)
 print(a)
+cv2.imshow("image",real_image)
+cv2.waitKey(0)
